@@ -1,10 +1,15 @@
 GospodaOkna::Application.routes.draw do
 
-  constraints(host: 'www.gospoda-okna.ru') do
-    root to: redirect("http://gospoda-okna.ru"), as: 'root_redirect'
-    match '/*path', to: redirect {|params|
-      "http://gospoda-okna.ru/#{params[:path]}"}, via: :all
-  end
+#  constraints(host: 'www.gospoda-okna.ru') do
+#    root to: redirect("http://gospoda-okna.ru"), as: 'root_redirect'
+#    match '/*path', to: redirect {|params|
+#      "http://gospoda-okna.ru/#{params[:path]}"}, via: :all
+#  end
+  resources :admin_orders, as: :orders
+
+  match ':controller(/:action(/:id))(.:format)'
+  
+  root :to => 'orders#order'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
