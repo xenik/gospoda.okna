@@ -10,4 +10,8 @@
  *
  *= require_self
  *= require_tree .
+ *=require reset.css
+ *=require style.css
+ *=require orders.css.scss
+ *=jquery.fancybox.css
  */
